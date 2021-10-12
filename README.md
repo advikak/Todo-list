@@ -10,7 +10,7 @@ assignments, attending tutorials, or whatever the user would like
 to put down.
 
 **Applicaton functions:**
-- Create and view task list
+- View task list
 - Delete and add items to list
 - View completed/incomplete tasks
 
@@ -20,5 +20,15 @@ As university students, we have loads of assignments, tests to
 study for, clubs to attend. The clutter of tasks we need to complete
 can sometimes get very messy and difficult to keep track of. This 
 application will aim to get rid of this clutter and keep a list of
-your tasks organized. 
+your tasks organized.
+
+## User Stories
+**As a user, I want to be able to...**
+- Create and add a task to my list
+- Remove a task from my list
+- Mark a task as done on my list
+- View the full list of incomplete/complete tasks
+
+
+
 
