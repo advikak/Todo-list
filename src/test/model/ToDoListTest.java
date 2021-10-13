@@ -19,7 +19,7 @@ class ToDoListTest {
     }
 
     @Test
-    public void testAddTask(){
+    public void testAddMultipleTasks(){
 
         t1 = new Task("Attend Class");
         t2 = new Task("Homework");
@@ -32,6 +32,16 @@ class ToDoListTest {
         assertTrue(testSet.contains(t2));
         assertFalse(testSet.contains(t3));
         assertEquals(2, testSet.listSize());
+    }
+
+    @Test
+    public void testAddOneTask(){
+
+        t1 = new Task("Attend Class");
+        testSet.addTask(t1);
+        assertTrue(testSet.contains(t1));
+
+        assertEquals(1, testSet.listSize());
     }
 
 

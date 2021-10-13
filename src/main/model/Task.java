@@ -15,7 +15,13 @@ public class Task {
         return complete;
     }
 
-    public void setComplete() {
+    public boolean setComplete() {
         this.complete = true;
+        return true;
+    }
+
+    public String getTask() {
+        return task;
     }
 }
+
