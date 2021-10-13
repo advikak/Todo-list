@@ -70,10 +70,11 @@ public class Application {
         todo.addTask(t1);
     }
 
-    // EFFECTS:
     public void printTodoList() {
         System.out.println("Your todo list: ");
-        todo.viewTodoList();
+        for (int i = 0; i < todo.listSize(); i++) {
+            System.out.println(todo.getSpecificTask(i).getTaskDescription());
+        }
     }
 }
 

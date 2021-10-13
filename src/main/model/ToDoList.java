@@ -36,10 +36,4 @@ public class ToDoList {
     public Task getSpecificTask(int i) {
         return todo.get(i);
     }
-
-    public void viewTodoList() {
-        for (int i = 0; i < todo.size(); i++) {
-            System.out.println(todo.get(i).getTaskDescription());
-        }
-    }
 }
