@@ -49,7 +49,7 @@ public class Application {
         if (command.equals("a")) {
             addTaskToList();
         } else if (command.equals("v")) {
-            viewTodoList();
+            printTodoList();
         }  else {
             System.out.println("Selection not valid...");
         }
@@ -70,11 +70,10 @@ public class Application {
         todo.addTask(t1);
     }
 
-    public void viewTodoList() {
+    // EFFECTS:
+    public void printTodoList() {
         System.out.println("Your todo list: ");
-        for (int i = 0; i < todo.listSize(); i++) {
-            System.out.println(todo.getSpecificTask(i).getTaskDescription());
-        }
+        todo.viewTodoList();
     }
 }
 
