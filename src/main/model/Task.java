@@ -23,7 +23,7 @@ public class Task {
     }
 
     //EFFECTS: returns the description of the task
-    public String getTask() {
+    public String getTaskDescription() {
         return task;
     }
 }

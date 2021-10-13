@@ -17,13 +17,13 @@ class ToDoListTest {
     public void setup() {
         testSet = new ToDoList();
         t1 = new Task("Attend Class");
+        t2 = new Task("Homework");
+        t3 = new Task("Yoga");
     }
 
     @Test
     public void testAddMultipleTasks(){
 
-        t2 = new Task("Homework");
-        t3 = new Task("Yoga");
 
         testSet.addTask(t1);
         testSet.addTask(t2);
@@ -37,19 +37,23 @@ class ToDoListTest {
     @Test
     public void testAddOneTask(){
 
-
         testSet.addTask(t1);
         assertTrue(testSet.contains(t1));
+        assertFalse(testSet.contains(t2));
 
         assertEquals(1, testSet.listSize());
     }
 
     @Test
-    public void testAddNoTasks(){
+    public void testGetSpecificTask() {
 
-        assertFalse(testSet.contains(t1));
-        assertEquals(0, testSet.listSize());
+        testSet.addTask(t3);
+        testSet.addTask(t1);
+        testSet.addTask(t2);
+
+        assertTrue(testSet.getSpecificTask(0).getTaskDescription() == "Yoga");
+        assertTrue(testSet.getSpecificTask(1).getTaskDescription() == "Attend Class");
+        assertTrue(testSet.getSpecificTask(2).getTaskDescription() == "Homework");
+
     }
-
-
 }

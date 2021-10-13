@@ -17,7 +17,7 @@ class TaskTest {
 
     @Test
     void testConstructor() {
-        assertEquals("Go grocery shopping", testTask.getTask());
+        assertEquals("Go grocery shopping", testTask.getTaskDescription());
     }
 
     @Test

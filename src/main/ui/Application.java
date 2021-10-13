@@ -71,7 +71,10 @@ public class Application {
     }
 
     public void viewTodoList() {
-
+        System.out.println("Your todo list: ");
+        for (int i = 0; i < todo.listSize(); i++) {
+            System.out.println(todo.getSpecificTask(i).getTaskDescription());
+        }
     }
 }
 

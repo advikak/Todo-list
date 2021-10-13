@@ -32,9 +32,8 @@ public class ToDoList {
         return todo.size();
     }
 
-    // EFFECTS: Returns the todolist
-    public ToDoList getList() {
-        return null;
+    // EFFECTS: Returns the task in todolist
+    public Task getSpecificTask(int i) {
+        return todo.get(i);
     }
-
 }
