@@ -8,6 +8,14 @@ public class Task {
     public Task(String task) {
         this.task = task;
         this.complete = false;
+
     }
 
+    public boolean isComplete() {
+        return complete;
+    }
+
+    public void setComplete() {
+        this.complete = true;
+    }
 }

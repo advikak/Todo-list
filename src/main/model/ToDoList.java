@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ToDoList {
 
-    private List<Task> todo;
+    private ArrayList<Task> todo;
 
     // EFFECTS: set is empty
     public ToDoList() {
@@ -22,7 +22,7 @@ public class ToDoList {
     // EFFECTS: Returns true if Task is in todoList
     // and false otherwise
     public boolean contains(Task containsTask) {
-        return true;
+        return todo.contains(containsTask);
     }
 
 
@@ -31,7 +31,7 @@ public class ToDoList {
         return todo.size();
     }
 
-    // EFFECTS: Returns the todo list
+    // EFFECTS: Returns the todolist
     public ToDoList getList() {
         return null;
     }

@@ -28,6 +28,7 @@ your tasks organized.
 - Remove a task from my list
 - Mark a task as done on my list
 - View the full list of incomplete/complete tasks
+- Quit the application
 
 
 
