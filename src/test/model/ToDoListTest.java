@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Tests for the ToDoList class
 class ToDoListTest {
 
     private ToDoList testSet;
@@ -15,13 +16,12 @@ class ToDoListTest {
     @BeforeEach
     public void setup() {
         testSet = new ToDoList();
-
+        t1 = new Task("Attend Class");
     }
 
     @Test
     public void testAddMultipleTasks(){
 
-        t1 = new Task("Attend Class");
         t2 = new Task("Homework");
         t3 = new Task("Yoga");
 
@@ -37,11 +37,18 @@ class ToDoListTest {
     @Test
     public void testAddOneTask(){
 
-        t1 = new Task("Attend Class");
+
         testSet.addTask(t1);
         assertTrue(testSet.contains(t1));
 
         assertEquals(1, testSet.listSize());
+    }
+
+    @Test
+    public void testAddNoTasks(){
+
+        assertFalse(testSet.contains(t1));
+        assertEquals(0, testSet.listSize());
     }
 
 
