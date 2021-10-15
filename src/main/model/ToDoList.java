@@ -47,15 +47,3 @@ public class ToDoList {
 }
 
 
-
-//    public void getToDoList() {
-//        System.out.println("Your todo list: ");
-//        if (todo.size() == 0) {
-//            System.out.println("Your todo list is empty! Please select another option");
-//        } else {
-//            for (int i = 0; i < todo.listSize(); i++) {
-//                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
-//            }
-//        }
-//    }
-//}
