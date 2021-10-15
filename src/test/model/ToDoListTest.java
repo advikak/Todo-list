@@ -60,7 +60,7 @@ class ToDoListTest {
     @Test
     public void testListSize() {
 
-        assertEquals(0, testSet.listSize());
+        assertEquals(0, testSet.listSize()); //ok
 
     }
 
