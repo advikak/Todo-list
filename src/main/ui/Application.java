@@ -75,8 +75,12 @@ public class Application {
 
     public void printTodoList() {
         System.out.println("Your todo list: ");
-        for (int i = 0; i < todo.listSize(); i++) {
-            System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+        if (todo.listSize() == 0) {
+            System.out.println("Nothing! You've completed all your tasks");
+        } else {
+            for (int i = 0; i < todo.listSize(); i++) {
+                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+            }
         }
     }
 
@@ -89,10 +93,7 @@ public class Application {
         if (todo.listSize() >= index && index > 0) {
             todo.removeTask(todo.getSpecificTask(index - 1));
         } else {
-            System.out.println("Error: number is not in the list, please try again");
+            System.out.println("Number is invalid, please try again");
         }
     }
 }
-
-
-

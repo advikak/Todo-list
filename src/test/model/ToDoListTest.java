@@ -56,4 +56,19 @@ class ToDoListTest {
         assertTrue(testSet.getSpecificTask(2).getTaskDescription() == "Homework");
 
     }
+
+    @Test
+    public void testListSize() {
+
+        assertEquals(0, testSet.listSize());
+
+    }
+
+    @Test
+    public void testContains() {
+        testSet.addTask(t1);
+        testSet.addTask(t2);
+
+        assertFalse(testSet.contains(t3));
+    }
 }
