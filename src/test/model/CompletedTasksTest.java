@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//Tests for the CompletedTasks class
 public class CompletedTasksTest {
 
     private CompletedTasks testCompleteSet;
@@ -22,10 +23,8 @@ public class CompletedTasksTest {
 
     @Test
     public void addCompletedTask() {
-
         testCompleteSet.addCompletedTask(t1);
         testCompleteSet.addCompletedTask(t2);
-
         assertTrue(testCompleteSet.containsCompleteTask(t1));
         assertFalse(testCompleteSet.containsCompleteTask(t3));
     }

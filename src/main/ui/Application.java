@@ -6,6 +6,9 @@ import model.ToDoList;
 
 import java.util.Scanner;
 
+// This class references code from this
+// https://github.students.cs.ubc.ca/CPSC210/TellerApp
+// This class is for user interface, todolist application in the console
 public class Application {
 
     private Scanner input;
@@ -17,6 +20,8 @@ public class Application {
         runApp();     //code based on TellerApp
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes the users input
     private void runApp() {
         boolean keepGoing = true;
         String command = null;
@@ -34,10 +39,10 @@ public class Application {
                 processCommand(command);
             }
         }
-
         System.out.println("\nGoodbye!");
     }
 
+    //EFFECTS: displays the menu with options for selection
     private void displayMenu() {
         System.out.println("Select action to perform on your todo list: ");
         System.out.println("\ta -> add task");
@@ -68,6 +73,7 @@ public class Application {
         input.useDelimiter("\n");
     }
 
+    //EFFECTS: User enters task which adds to todolist
     public void addTaskToList() {
         System.out.print("Enter your task: ");
         String task = input.next();
@@ -75,6 +81,7 @@ public class Application {
         todo.addTask(t1);
     }
 
+    //EFFECTS: Prints the full todolist on incomplete tasks
     public void printTodoList() {
         System.out.println("Your todo list: ");
         if (todo.isEmpty()) {
@@ -86,6 +93,7 @@ public class Application {
         }
     }
 
+    //EFFECTS: Marks task at number entered as completed and removes it from todolist
     public void markAsComplete() {
         if (todo.isEmpty()) {
             System.out.println("Todo list is empty, please make another selection");
@@ -96,6 +104,7 @@ public class Application {
             }
             int num = input.nextInt();
             if (todo.listSize() >= num && num > 0) {
+                todo.getSpecificTask(num - 1).setComplete();
                 todo.removeTask(todo.getSpecificTask(num - 1));
             } else {
                 System.out.println("Number is invalid, please try again");

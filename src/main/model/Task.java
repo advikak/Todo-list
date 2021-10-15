@@ -7,6 +7,7 @@ public class Task {
     private String task;
     private boolean complete;
 
+    //EFFECTS: Constructing a task with a description and default as incomplete
     public Task(String task) {
         this.task = task;
         this.complete = false;

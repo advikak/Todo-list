@@ -7,7 +7,7 @@ public class ToDoList {
 
     private ArrayList<Task> todo;
 
-    // EFFECTS: set is empty
+    // EFFECTS: todolist is empty
     public ToDoList() {
         todo = new ArrayList<>();
     }
