@@ -60,7 +60,7 @@ class ToDoListTest {
     @Test
     public void testListSize() {
 
-        assertEquals(0, testSet.listSize()); //ok
+        assertEquals(0, testSet.listSize());
 
     }
 
@@ -70,5 +70,16 @@ class ToDoListTest {
         testSet.addTask(t2);
 
         assertFalse(testSet.contains(t3));
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(testSet.isEmpty());
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        testSet.addTask(t1);
+        assertFalse(testSet.isEmpty());
     }
 }

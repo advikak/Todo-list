@@ -16,17 +16,18 @@ class TaskTest {
     }
 
     @Test
-    void testConstructor() {
+    public void testConstructor() {
         assertEquals("Go grocery shopping", testTask.getTaskDescription());
     }
 
     @Test
-    void testCompletenessOfNewTask() {
+    public void testCompletenessOfNewTask() {
         assertFalse(testTask.isComplete());
     }
 
     @Test
-    void testCompleteTask() {
+    public void testCompleteTask() {
         assertTrue(testTask.setComplete());
     }
+
 }

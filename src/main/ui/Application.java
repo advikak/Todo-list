@@ -75,7 +75,7 @@ public class Application {
 
     public void printTodoList() {
         System.out.println("Your todo list: ");
-        if (todo.listSize() == 0) {
+        if (todo.isEmpty()) {
             System.out.println("Nothing! You've completed all your tasks");
         } else {
             for (int i = 0; i < todo.listSize(); i++) {
@@ -85,15 +85,19 @@ public class Application {
     }
 
     public void markAsComplete() {
-        System.out.println("Which task would you like to mark as complete? (Enter number): ");
-        for (int i = 0; i < todo.listSize(); i++) {
-            System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
-        }
-        int index = input.nextInt();
-        if (todo.listSize() >= index && index > 0) {
-            todo.removeTask(todo.getSpecificTask(index - 1));
+        if (todo.isEmpty()) {
+            System.out.println("Todo list is empty, please make another selection");
         } else {
-            System.out.println("Number is invalid, please try again");
+            System.out.println("Which task would you like to mark as complete? (Enter number): ");
+            for (int i = 0; i < todo.listSize(); i++) {
+                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+            }
+            int index = input.nextInt();
+            if (todo.listSize() >= index && index > 0) {
+                todo.removeTask(todo.getSpecificTask(index - 1));
+            } else {
+                System.out.println("Number is invalid, please try again");
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 package model;
 
 // This class represents a task, used to create other task objects which will be used in the array list ToDoList
+// also includes methods related to the task
 public class Task {
 
     private String task;

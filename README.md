@@ -25,9 +25,9 @@ your tasks organized.
 ## User Stories
 **As a user, I want to be able to...**
 - Create and add a task to my list
-- Remove a task from my list
+- View my todo list
 - Mark a task as done on my list
-- View the full list of incomplete/complete tasks
+- View list of completed tasks
 - Quit the application
 
 
