@@ -44,18 +44,17 @@ public class ToDoList {
     public boolean isEmpty() {
         return (todo.size() == 0);
     }
+
+    public void getToDoList() {
+        System.out.println("Your todo list: ");
+        if (todo.isEmpty()) {
+            System.out.println("Nothing! You've completed all your tasks");
+        } else {
+            for (int i = 0; i < todo.size(); i++) {
+                System.out.println((i + 1) + ": " + todo.get(i).getTaskDescription());
+            }
+        }
+    }
 }
 
 
-
-//    public void getToDoList() {
-//        System.out.println("Your todo list: ");
-//        if (todo.size() == 0) {
-//            System.out.println("Your todo list is empty! Please select another option");
-//        } else {
-//            for (int i = 0; i < todo.listSize(); i++) {
-//                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
-//            }
-//        }
-//    }
-//}

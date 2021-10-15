@@ -74,14 +74,7 @@ public class Application {
     }
 
     public void printTodoList() {
-        System.out.println("Your todo list: ");
-        if (todo.isEmpty()) {
-            System.out.println("Nothing! You've completed all your tasks");
-        } else {
-            for (int i = 0; i < todo.listSize(); i++) {
-                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
-            }
-        }
+        todo.getToDoList();
     }
 
     public void markAsComplete() {
