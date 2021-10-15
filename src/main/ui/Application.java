@@ -40,6 +40,7 @@ public class Application {
         System.out.println("Select action to perform on your todo list: ");
         System.out.println("\ta -> add task");
         System.out.println("\tv -> view todo list");
+        System.out.println("\tm -> mark task as complete");
         System.out.println("\tq -> quit");
     }
 
@@ -50,7 +51,9 @@ public class Application {
             addTaskToList();
         } else if (command.equals("v")) {
             printTodoList();
-        }  else {
+        } else if (command.equals("m")) {
+            markAsComplete();
+        } else {
             System.out.println("Selection not valid...");
         }
     }
@@ -73,11 +76,23 @@ public class Application {
     public void printTodoList() {
         System.out.println("Your todo list: ");
         for (int i = 0; i < todo.listSize(); i++) {
-            System.out.println(todo.getSpecificTask(i).getTaskDescription());
+            System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+        }
+    }
+
+    public void markAsComplete() {
+        System.out.println("Which task would you like to mark as complete? (Enter number): ");
+        for (int i = 0; i < todo.listSize(); i++) {
+            System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+        }
+        int index = input.nextInt();
+        if (todo.listSize() >= index && index > 0) {
+            todo.removeTask(todo.getSpecificTask(index - 1));
+        } else {
+            System.out.println("Error: number is not in the list, please try again");
         }
     }
 }
-
 
 
 

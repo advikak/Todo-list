@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.List;
 
 //
 public class ToDoList {
@@ -18,6 +17,10 @@ public class ToDoList {
     public void addTask(Task addedTask) {
         todo.add(addedTask);
 
+    }
+
+    public void removeTask(Task removedTask) {
+        todo.remove(removedTask);
     }
 
     // EFFECTS: Returns true if Task is in todoList
