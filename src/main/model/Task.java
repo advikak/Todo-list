@@ -17,10 +17,10 @@ public class Task {
         return complete;
     }
 
+    //MODIFIES: this
     //EFFECTS: sets the task to complete (true)
-    public boolean setComplete() {
+    public void setComplete() {
         this.complete = true;
-        return true;
     }
 
     //EFFECTS: returns the description of the task

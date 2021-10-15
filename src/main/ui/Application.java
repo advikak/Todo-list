@@ -1,5 +1,6 @@
 package ui;
 
+import model.CompletedTasks;
 import model.Task;
 import model.ToDoList;
 
@@ -9,6 +10,7 @@ public class Application {
 
     private Scanner input;
     private ToDoList todo;
+    private CompletedTasks completeTasks;
 
     //EFFECTS: runs the application
     public Application() {
@@ -92,9 +94,9 @@ public class Application {
             for (int i = 0; i < todo.listSize(); i++) {
                 System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
             }
-            int index = input.nextInt();
-            if (todo.listSize() >= index && index > 0) {
-                todo.removeTask(todo.getSpecificTask(index - 1));
+            int num = input.nextInt();
+            if (todo.listSize() >= num && num > 0) {
+                todo.removeTask(todo.getSpecificTask(num - 1));
             } else {
                 System.out.println("Number is invalid, please try again");
             }

@@ -2,11 +2,12 @@ package model;
 
 import java.util.ArrayList;
 
+// Arraylist to show completed tasks from a todolist
 public class CompletedTasks {
 
     private ArrayList<Task> complete;
 
-    // EFFECTS: set is empty
+    // EFFECTS: completed tasks set is empty
     public CompletedTasks() {
         complete = new ArrayList<>();
     }
