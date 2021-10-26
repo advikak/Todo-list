@@ -28,7 +28,8 @@ your tasks organized.
 - View my todo list
 - Mark a task as done on my list
 - View list of completed tasks
-- Quit the application
+- Have the option to save my todo list when quiting the app
+- Have the option to load my todo list when starting the app
 
 
 
