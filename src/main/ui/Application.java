@@ -13,7 +13,7 @@ public class Application {
 
     private Scanner input;
     private ToDoList todo;
-    private CompletedTasks completeTasks;
+    private ToDoList completeTasks;
 
     //EFFECTS: runs the application
     public Application() {
@@ -48,6 +48,8 @@ public class Application {
         System.out.println("\ta -> add task");
         System.out.println("\tv -> view todo list");
         System.out.println("\tm -> mark task as complete");
+        System.out.println("\tr -> remove a task from the list");
+        System.out.println("\tc -> view completed tasks");
         System.out.println("\tq -> quit");
     }
 
@@ -60,14 +62,19 @@ public class Application {
             printTodoList();
         } else if (command.equals("m")) {
             markAsComplete();
+        } else if (command.equals("r")) {
+            removeTaskFromTodo();
+        } else if (command.equals("c")) {
+            viewCompletedTasks();
         } else {
             System.out.println("Selection not valid...");
         }
     }
 
     // MODIFIES: this
-    // EFFECTS: initializes ToDoList
+    // EFFECTS: initializes ToDoList and completed task list
     private void init() {
+        completeTasks = new ToDoList();
         todo = new ToDoList();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
@@ -105,9 +112,39 @@ public class Application {
             int num = input.nextInt();
             if (todo.listSize() >= num && num > 0) {
                 todo.getSpecificTask(num - 1).setComplete();
+                completeTasks.addTask(todo.getSpecificTask(num - 1));
                 todo.removeTask(todo.getSpecificTask(num - 1));
             } else {
                 System.out.println("Number is invalid, please try again");
+            }
+        }
+    }
+
+    // EFFECTS: Removes a task from the todolist
+    public void removeTaskFromTodo() {
+        if (todo.isEmpty()) {
+            System.out.println("Todo list is empty, please make another selection");
+        } else {
+            System.out.println("Which task would you like to remove from list? (Enter number): ");
+            for (int i = 0; i < todo.listSize(); i++) {
+                System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+            }
+            int num = input.nextInt();
+            if (todo.listSize() >= num && num > 0) {
+                todo.removeTask(todo.getSpecificTask(num - 1));
+            } else {
+                System.out.println("Number is invalid, please try again");
+            }
+        }
+    }
+
+    // EFFECTS: Allows user to view list of completed tasks
+    public void viewCompletedTasks() {
+        if (completeTasks.isEmpty()) {
+            System.out.println("No tasks have been completed");
+        } else {
+            for (int i = 0; i < completeTasks.listSize(); i++) {
+                System.out.println((i + 1) + ": " + completeTasks.getSpecificTask(i).getTaskDescription());
             }
         }
     }

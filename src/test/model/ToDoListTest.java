@@ -22,6 +22,16 @@ class ToDoListTest {
     }
 
     @Test
+    public void testRemoveTask(){
+        testSet.addTask(t1);
+        testSet.addTask(t2);
+        assertTrue(testSet.contains(t1));
+        testSet.removeTask(t1);
+        assertFalse(testSet.contains(t1));
+    }
+
+
+    @Test
     public void testAddMultipleTasks(){
         testSet.addTask(t1);
         testSet.addTask(t2);

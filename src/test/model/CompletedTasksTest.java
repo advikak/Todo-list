@@ -29,4 +29,29 @@ public class CompletedTasksTest {
         assertFalse(testCompleteSet.containsCompleteTask(t3));
     }
 
+    @Test
+    public void testCompletedListSize() {
+        assertEquals(0, testCompleteSet.completedListSize());
+    }
+
+    @Test
+    public void testGetSpecificTask() {
+        testCompleteSet.addCompletedTask(t3);
+        testCompleteSet.addCompletedTask(t1);
+        testCompleteSet.addCompletedTask(t2);
+        assertTrue(testCompleteSet.getSpecificTask(0).getTaskDescription() == "Yoga");
+        assertTrue(testCompleteSet.getSpecificTask(1).getTaskDescription() == "Attend Class");
+        assertTrue(testCompleteSet.getSpecificTask(2).getTaskDescription() == "Homework");
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(testCompleteSet.completeIsEmpty());
+    }
+
+    @Test
+    public void testIsNotEmpty() {
+        testCompleteSet.addCompletedTask(t1);
+        assertFalse(testCompleteSet.completeIsEmpty());
+    }
 }

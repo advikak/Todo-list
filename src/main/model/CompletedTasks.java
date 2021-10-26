@@ -23,4 +23,19 @@ public class CompletedTasks {
     public boolean containsCompleteTask(Task completedTask) {
         return complete.contains(completedTask);
     }
+
+    // EFFECTS: Returns the number of items in the todolist
+    public int completedListSize() {
+        return complete.size();
+    }
+
+    // EFFECTS: Returns the task in completed tasks list at index i
+    public Task getSpecificTask(int i) {
+        return complete.get(i);
+    }
+
+    //EFFECTS: Returns true if todolist is empty, false otherwise
+    public boolean completeIsEmpty() {
+        return (complete.size() == 0);
+    }
 }
