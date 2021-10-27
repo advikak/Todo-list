@@ -40,7 +40,7 @@ public class JsonReader {
 
     // EFFECTS: parses todolist from JSON object and returns it
     private ToDoList parseTodoList(JSONObject jsonObject) {
-        ToDoList todoList = new ToDoList("TodoList");
+        ToDoList todoList = new ToDoList();
         addTasks(todoList, jsonObject);
         return todoList;
     }

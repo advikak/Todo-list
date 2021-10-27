@@ -15,7 +15,7 @@ class ToDoListTest {
 
     @BeforeEach
     public void setup() {
-        testSet = new ToDoList("Advika's todo list");
+        testSet = new ToDoList();
         t1 = new Task("Attend Class");
         t2 = new Task("Homework");
         t3 = new Task("Yoga");

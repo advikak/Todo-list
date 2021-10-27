@@ -11,18 +11,14 @@ import java.util.List;
 // Class for constructing TodoList and methods related to the list
 public class ToDoList implements Writable {
 
-    private String name;
     private ArrayList<Task> todo;
 
     // EFFECTS: todolist is empty
-    public ToDoList(String name) {
-        this.name = name;
+    public ToDoList() {
+
         todo = new ArrayList<>();
     }
 
-    public String getName() {
-        return name;
-    }
 
     // EFFECTS: returns an unmodifiable list of thingies in this workroom
     public List<Task> getTasks() {
@@ -69,7 +65,7 @@ public class ToDoList implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns things in this todolist as a JSON array
     private JSONArray tasksToJson() {
         JSONArray jsonArray = new JSONArray();
 

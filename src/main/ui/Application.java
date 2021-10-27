@@ -86,8 +86,8 @@ public class Application {
     // MODIFIES: this
     // EFFECTS: initializes ToDoList and completed task list
     private void init() {
-        completeTasks = new ToDoList("Completed Tasks");
-        todo = new ToDoList("Todo List");
+        completeTasks = new ToDoList();
+        todo = new ToDoList();
         input = new Scanner(System.in);
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
@@ -168,7 +168,7 @@ public class Application {
             jsonWriter.open();
             jsonWriter.write(todo);
             jsonWriter.close();
-            System.out.println("Saved " + todo.getName() + " to " + JSON_STORE);
+            System.out.println("Saved todolist to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
@@ -179,7 +179,7 @@ public class Application {
     private void loadToDo() {
         try {
             todo = jsonReader.read();
-            System.out.println("Loaded " + todo.getName() + " from " + JSON_STORE);
+            System.out.println("Loaded todolist from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
