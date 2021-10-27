@@ -20,15 +20,4 @@ class TaskTest {
         assertEquals("Go grocery shopping", testTask.getTaskDescription());
     }
 
-    @Test
-    public void testCompletenessOfNewTask() {
-        assertFalse(testTask.isComplete());
-    }
-
-    @Test
-    public void testCompleteTask() {
-        testTask.setComplete();
-        assertTrue(testTask.isComplete());
-    }
-
 }

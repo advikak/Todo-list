@@ -1,9 +1,12 @@
 package ui;
 
-import model.CompletedTasks;
 import model.Task;
 import model.ToDoList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 // This class references code from this
@@ -11,12 +14,15 @@ import java.util.Scanner;
 // This class is for user interface, todolist application in the console
 public class Application {
 
+    private static final String JSON_STORE = "./data/todolist.json";
     private Scanner input;
     private ToDoList todo;
     private ToDoList completeTasks;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     //EFFECTS: runs the application
-    public Application() {
+    public Application() throws FileNotFoundException {
         runApp();     //code based on TellerApp
     }
 
@@ -50,6 +56,8 @@ public class Application {
         System.out.println("\tm -> mark task as complete");
         System.out.println("\tr -> remove a task from the list");
         System.out.println("\tc -> view completed tasks");
+        System.out.println("\ts -> save todolist to file");
+        System.out.println("\tl -> load todolist from file");
         System.out.println("\tq -> quit");
     }
 
@@ -66,6 +74,10 @@ public class Application {
             removeTaskFromTodo();
         } else if (command.equals("c")) {
             viewCompletedTasks();
+        } else if (command.equals("s")) {
+            saveToDo();
+        } else if (command.equals("l")) {
+            loadToDo();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -74,9 +86,11 @@ public class Application {
     // MODIFIES: this
     // EFFECTS: initializes ToDoList and completed task list
     private void init() {
-        completeTasks = new ToDoList();
-        todo = new ToDoList();
+        completeTasks = new ToDoList("Completed Tasks");
+        todo = new ToDoList("Todo List");
         input = new Scanner(System.in);
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         input.useDelimiter("\n");
     }
 
@@ -111,7 +125,6 @@ public class Application {
             }
             int num = input.nextInt();
             if (todo.listSize() >= num && num > 0) {
-                todo.getSpecificTask(num - 1).setComplete();
                 completeTasks.addTask(todo.getSpecificTask(num - 1));
                 todo.removeTask(todo.getSpecificTask(num - 1));
             } else {
@@ -146,6 +159,29 @@ public class Application {
             for (int i = 0; i < completeTasks.listSize(); i++) {
                 System.out.println((i + 1) + ": " + completeTasks.getSpecificTask(i).getTaskDescription());
             }
+        }
+    }
+
+    // EFFECTS: saves the todolist to file
+    private void saveToDo() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(todo);
+            jsonWriter.close();
+            System.out.println("Saved " + todo.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads todolist from file
+    private void loadToDo() {
+        try {
+            todo = jsonReader.read();
+            System.out.println("Loaded " + todo.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 }

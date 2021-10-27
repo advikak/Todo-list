@@ -1,15 +1,32 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 // Class for constructing TodoList and methods related to the list
-public class ToDoList {
+public class ToDoList implements Writable {
 
+    private String name;
     private ArrayList<Task> todo;
 
     // EFFECTS: todolist is empty
-    public ToDoList() {
+    public ToDoList(String name) {
+        this.name = name;
         todo = new ArrayList<>();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    // EFFECTS: returns an unmodifiable list of thingies in this workroom
+    public List<Task> getTasks() {
+        return Collections.unmodifiableList(todo);
     }
 
     //MODIFIES: this
@@ -43,6 +60,24 @@ public class ToDoList {
     //EFFECTS: Returns true if todolist is empty, false otherwise
     public boolean isEmpty() {
         return (todo.size() == 0);
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Tasks", tasksToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray tasksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Task t : todo) {
+            jsonArray.put(t.toJson());
+        }
+
+        return jsonArray;
     }
 }
 
