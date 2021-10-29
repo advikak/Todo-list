@@ -10,6 +10,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+// This class references code from the workroom app
+// Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+// Tests for JsonWriter
 public class JsonWriterTest extends JsonTest {
 
     @Test

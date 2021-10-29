@@ -10,6 +10,9 @@ import model.Task;
 import model.ToDoList;
 import org.json.*;
 
+// This class references code from the workroom app
+// Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 // Represents a reader that reads todolist from JSON data stored in file
 public class JsonReader {
     private String source;
@@ -62,4 +65,6 @@ public class JsonReader {
         Task task = new Task(name);
         tdl.addTask(task);
     }
+
+
 }

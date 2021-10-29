@@ -2,8 +2,6 @@ package persistence;
 
 import model.Task;
 import model.ToDoList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -12,6 +10,9 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+// This class references code from the workroom app
+// Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+// tests for the Jsonreader class
 public class JsonReaderTest extends JsonTest {
 
     @Test

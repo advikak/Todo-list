@@ -26,6 +26,7 @@ your tasks organized.
 **As a user, I want to be able to...**
 - Create and add a task to my list
 - View my todo list
+- Remove a task from my todo list
 - Mark a task as done on my list
 - View list of completed tasks
 - Have the option to save my todo list when quiting the app
