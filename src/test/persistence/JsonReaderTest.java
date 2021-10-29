@@ -2,6 +2,8 @@ package persistence;
 
 import model.Task;
 import model.ToDoList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -35,7 +37,9 @@ public class JsonReaderTest extends JsonTest {
         }
     }
 
-    @Test
+
+
+        @Test
     void testReaderNormalToDo() {
         JsonReader reader = new JsonReader("./data/testReaderNormalToDo.json");
         try {

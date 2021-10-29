@@ -2,6 +2,7 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.json.JSONObject;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,6 +19,11 @@ class TaskTest {
     @Test
     public void testConstructor() {
         assertEquals("Go grocery shopping", testTask.getTaskDescription());
+    }
+
+    @Test
+    public void testToJson() {
+        assertEquals("{\"name\":\"Go grocery shopping\"}", JSONObject.valueToString(testTask.toJson()));
     }
 
 }

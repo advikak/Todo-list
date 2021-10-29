@@ -66,7 +66,7 @@ public class ToDoList implements Writable {
     }
 
     // EFFECTS: returns things in this todolist as a JSON array
-    private JSONArray tasksToJson() {
+    public JSONArray tasksToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Task t : todo) {
