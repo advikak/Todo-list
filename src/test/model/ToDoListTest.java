@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -80,6 +83,15 @@ class ToDoListTest {
     public void testIsNotEmpty() {
         testSet.addTask(t1);
         assertFalse(testSet.isEmpty());
+    }
+
+    @Test
+    public void testTasksToJson() {
+        testSet.addTask(t1);
+        testSet.addTask(t2);
+        JSONArray testSetJson = testSet.tasksToJson();
+
+        assertEquals("{\"name\":\"Homework\"}", testSetJson.get(1).toString());
     }
 
 }
