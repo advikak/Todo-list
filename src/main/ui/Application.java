@@ -96,7 +96,6 @@ public class Application extends Display {
     }
 
 
-
     //EFFECTS: User enters task which adds to todolist
     public void addTaskToList() {
         System.out.print("Enter your task: ");

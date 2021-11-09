@@ -3,12 +3,18 @@ package ui;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
-public class Display {
+public class Display extends JFrame implements ActionListener {
 
     JFrame frame = new JFrame();
+    private JButton b1;
+    private JButton b2;
+    private JButton b3;
+    private JButton b4;
 
+    // MODIFIES: THIS
     // EFFECTS: sets a background display for the application
     public void backgroundGraphics() {
         JPanel panel = new JPanel();
@@ -18,7 +24,7 @@ public class Display {
         JLabel label = new JLabel();
         label.setText("Todo List");
         label.setFont(new Font("Verdana", Font.BOLD, 19));
-        label.setBounds(60, 20, 100, 30);
+        label.setBounds(60, 50, 100, 30);
         label.setForeground(new Color(255,255,255));
 
         frame.setSize(700, 400);
@@ -31,41 +37,41 @@ public class Display {
         frame.add(label);
         frame.add(panel);
         addMenu();
-
     }
 
-    @SuppressWarnings("checkstyle:MethodLength")
+
+    //EFFECTS: user story buttons as the menu
     public void addMenu() {
-        JButton b1 = new JButton("Add Task");
-        b1.setBounds(60,70,100, 40);
-        b1.setSize(150,40);
-        frame.add(b1);
+        this.b1 = new JButton("LOAD your list");
+        b1.setBounds(60,100,100, 40);
+        b1.addActionListener(this);
+        setButton(b1);
 
-        JButton b2 = new JButton("Remove Task");
-        b2.setBounds(60,120,100, 40);
-        b2.setSize(150,40);
-        frame.add(b2);
+        this.b2 = new JButton("Add Task");
+        b2.setBounds(60,150,100, 40);
+        setButton(b2);
 
-        JButton b3 = new JButton("Mark as complete");
-        b3.setBounds(60,170,100, 40);
-        b3.setSize(150,40);
-        frame.add(b3);
+        this.b3 = new JButton("Remove Task");
+        b3.setBounds(60,200,100, 40);
+        setButton(b3);
 
-        JButton b4 = new JButton("View Completed");
-        b4.setBounds(60,220,100, 40);
-        b4.setSize(150,40);
-        frame.add(b4);
+        this.b4 = new JButton("Save");
+        b4.setBounds(60,250,100, 40);
+        setButton(b4);
 
-        JButton b5 = new JButton("Save");
-        b5.setBounds(60,270,100, 40);
-        b5.setSize(150,40);
-        frame.add(b5);
-
-        JButton b6 = new JButton("Load todo list");
-        b6.setBounds(60,320,100, 40);
-        b6.setSize(150,40);
-        frame.add(b6);
     }
 
 
+    // EFFECTS: Sets button characteristics
+    private void setButton(JButton b1) {
+        b1.setSize(150,40);
+        b1.setForeground(Color.WHITE);
+        frame.add(b1);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+    }
 }
+
