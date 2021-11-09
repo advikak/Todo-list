@@ -1,5 +1,7 @@
 package ui;
 
+import model.Task;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,9 +16,13 @@ public class Display extends JFrame implements ActionListener {
     private JButton b3;
     private JButton b4;
 
+    public Display() {
+        super();
+    }
+
     // MODIFIES: THIS
     // EFFECTS: sets a background display for the application
-    public void backgroundGraphics() {
+    public void graphics() {
         JPanel panel = new JPanel();
         panel.setBackground(new Color(224,224,224));
         panel.setBounds(300,0,700, 400);
@@ -67,6 +73,7 @@ public class Display extends JFrame implements ActionListener {
         b1.setSize(150,40);
         b1.setForeground(Color.WHITE);
         frame.add(b1);
+
     }
 
     @Override

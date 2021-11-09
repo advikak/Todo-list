@@ -33,7 +33,7 @@ public class Application extends Display {
         String command = null;
 
         init();
-        backgroundGraphics();
+        graphics();
 
         while (keepGoing) {
             displayMenu();
