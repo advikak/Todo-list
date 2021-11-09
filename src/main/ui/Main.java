@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 // This class references code from the workroom app
 // Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
-public class Main extends Display {
+public class Main {
 
     public static void main(String[] args) {
         try {
