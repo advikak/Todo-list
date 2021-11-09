@@ -12,7 +12,7 @@ import java.util.Scanner;
 // This class references code from this
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp
 // This class is for user interface, todolist application in the console
-public class Application {
+public class Application extends Display {
 
     private static final String JSON_STORE = "./data/todolist.json";
     private Scanner input;
@@ -33,6 +33,7 @@ public class Application {
         String command = null;
 
         init();
+        backgroundGraphics();
 
         while (keepGoing) {
             displayMenu();
@@ -93,6 +94,8 @@ public class Application {
         jsonReader = new JsonReader(JSON_STORE);
         input.useDelimiter("\n");
     }
+
+
 
     //EFFECTS: User enters task which adds to todolist
     public void addTaskToList() {
@@ -184,5 +187,7 @@ public class Application {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
+
+
 }
 
