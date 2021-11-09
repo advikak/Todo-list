@@ -7,12 +7,6 @@ import java.io.FileNotFoundException;
 // Link: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class Main extends JFrame {
 
-    private void initializeGraphics() {
-        JFrame frame = new JFrame();
-        frame.setSize(600, 600);
-        frame.setVisible(true);
-    }
-
     public static void main(String[] args) {
         try {
             new Application();
