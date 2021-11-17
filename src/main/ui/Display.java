@@ -19,7 +19,7 @@ public class Display extends JFrame {
     private JTextField text = new JTextField(25);
     private JList list = new JList();
     private ToDoList todo = new ToDoList();
-    private TodoListModel m1 = new TodoListModel(todo);
+    private TodoListModel m1;
 
     private static final String JSON_STORE = "./data/todolist.json";
     private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
@@ -40,7 +40,7 @@ public class Display extends JFrame {
         add(panel);
         panel.add(scrollPane);
 
-        list.setModel(m1);
+        list.setModel(m1 = new TodoListModel(todo));
 
         addMenu();
     }
@@ -108,8 +108,7 @@ public class Display extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     todo = jsonReader.read();
-
-                    System.out.println("Loaded todolist from " + JSON_STORE);
+                    viewTodo(todo);
                 } catch (IOException i) {
                     System.out.println("Unable to read from file: " + JSON_STORE);
                 }
@@ -126,7 +125,6 @@ public class Display extends JFrame {
                     jsonWriter.open();
                     jsonWriter.write(todo);
                     jsonWriter.close();
-                    System.out.println("Saved todolist to " + JSON_STORE);
                     savePopUp();
                 } catch (FileNotFoundException i) {
                     System.out.println("Unable to write to file: " + JSON_STORE);
@@ -135,6 +133,14 @@ public class Display extends JFrame {
         });
     }
 
+    // EFFECTS: loads the saved todolist and sets that as the model
+    public void viewTodo(ToDoList todo) {
+        m1 = new TodoListModel(todo);
+        list.setModel(m1);
+
+    }
+
+    // EFFECTS: popup window that says application has been saved.
     public void savePopUp() {
         JOptionPane.showMessageDialog(null,
                 "Your todolist has been saved",

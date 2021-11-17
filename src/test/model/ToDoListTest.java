@@ -63,6 +63,18 @@ class ToDoListTest {
     }
 
     @Test
+    public void testRemoveIndexTask() {
+        testSet.addTask(t3);
+        testSet.addTask(t1);
+        testSet.addTask(t2);
+
+        testSet.removeIndexTask(2);
+
+        assertTrue(testSet.listSize() == 2);
+    }
+
+
+    @Test
     public void testListSize() {
         assertEquals(0, testSet.listSize());
     }
