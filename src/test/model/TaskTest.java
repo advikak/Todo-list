@@ -17,6 +17,11 @@ class TaskTest {
     }
 
     @Test
+    public void testToString() {
+        assertTrue(testTask.toString() == "Go grocery shopping");
+    }
+
+    @Test
     public void testConstructor() {
         assertEquals("Go grocery shopping", testTask.getTaskDescription());
     }

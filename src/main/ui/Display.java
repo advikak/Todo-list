@@ -2,12 +2,17 @@ package ui;
 
 import model.Task;
 import model.ToDoList;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
 
 public class Display extends JFrame {
 
@@ -16,10 +21,15 @@ public class Display extends JFrame {
     private ToDoList todo = new ToDoList();
     private TodoListModel m1 = new TodoListModel(todo);
 
+    private static final String JSON_STORE = "./data/todolist.json";
+    private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
+    private JsonReader jsonReader = new JsonReader(JSON_STORE);
+
     private JButton b1 = new JButton("Add");
     private JButton b2 = new JButton("Remove");
     private JButton b3 = new JButton("Load");
     private JButton b4 = new JButton("Save");
+    private JScrollPane scrollPane = new JScrollPane(list);
 
     // EFFECTS: sets a display for the application
     public Display() {
@@ -28,7 +38,7 @@ public class Display extends JFrame {
 
         JPanel panel = new JPanel();
         add(panel);
-        panel.add(new JScrollPane(list));
+        panel.add(scrollPane);
 
         list.setModel(m1);
 
@@ -93,14 +103,44 @@ public class Display extends JFrame {
 
     // EFFECTS: loads the todolist
     public void loadTodo(JButton b3) {
-        // todo
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    todo = jsonReader.read();
+
+                    System.out.println("Loaded todolist from " + JSON_STORE);
+                } catch (IOException i) {
+                    System.out.println("Unable to read from file: " + JSON_STORE);
+                }
+            }
+        });
     }
 
     // EFFECTS: saves the todolist
     public void saveTodo(JButton b4) {
-        // todo
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    jsonWriter.open();
+                    jsonWriter.write(todo);
+                    jsonWriter.close();
+                    System.out.println("Saved todolist to " + JSON_STORE);
+                    savePopUp();
+                } catch (FileNotFoundException i) {
+                    System.out.println("Unable to write to file: " + JSON_STORE);
+                }
+            }
+        });
     }
 
+    public void savePopUp() {
+        JOptionPane.showMessageDialog(null,
+                "Your todolist has been saved",
+                "Saved",
+                JOptionPane.WARNING_MESSAGE);
+    }
 
 }
 
