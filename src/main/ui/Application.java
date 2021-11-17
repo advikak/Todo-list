@@ -12,7 +12,7 @@ import java.util.Scanner;
 // This class references code from this
 // https://github.students.cs.ubc.ca/CPSC210/TellerApp
 // This class is for user interface, todolist application in the console
-public class Application extends Display {
+public class Application {
 
     private static final String JSON_STORE = "./data/todolist.json";
     private Scanner input;
@@ -20,6 +20,7 @@ public class Application extends Display {
     private ToDoList completeTasks;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
+    private Display display;
 
     //EFFECTS: runs the application
     public Application() throws FileNotFoundException {
@@ -33,7 +34,6 @@ public class Application extends Display {
         String command = null;
 
         init();
-        graphics();
 
         while (keepGoing) {
             displayMenu();
@@ -48,6 +48,7 @@ public class Application extends Display {
         }
         System.out.println("\nGoodbye!");
     }
+
 
     //EFFECTS: displays the menu with options for selection
     private void displayMenu() {
@@ -110,8 +111,10 @@ public class Application extends Display {
         if (todo.isEmpty()) {
             System.out.println("Nothing! You've completed all your tasks");
         } else {
+
             for (int i = 0; i < todo.listSize(); i++) {
                 System.out.println((i + 1) + ": " + todo.getSpecificTask(i).getTaskDescription());
+
             }
         }
     }
@@ -165,7 +168,7 @@ public class Application extends Display {
     }
 
     // EFFECTS: saves the todolist to file
-    private void saveToDo() {
+    public void saveToDo() {
         try {
             jsonWriter.open();
             jsonWriter.write(todo);
@@ -178,7 +181,7 @@ public class Application extends Display {
 
     // MODIFIES: this
     // EFFECTS: loads todolist from file
-    private void loadToDo() {
+    public void loadToDo() {
         try {
             todo = jsonReader.read();
             System.out.println("Loaded todolist from " + JSON_STORE);
@@ -186,7 +189,5 @@ public class Application extends Display {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
-
-
 }
 

@@ -37,6 +37,10 @@ public class ToDoList implements Writable {
         todo.remove(removedTask);
     }
 
+    public void removeIndexTask(int index) {
+        todo.remove(index);
+    }
+
     // EFFECTS: Returns true if Task is in todoList
     // and false otherwise
     public boolean contains(Task containsTask) {

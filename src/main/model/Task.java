@@ -20,6 +20,11 @@ public class Task implements Writable {
     }
 
     @Override
+    public String toString() {
+        return task;
+    }
+
+    @Override
     // EFFECTS: stores task in JSONobject
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
