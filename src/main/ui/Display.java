@@ -87,8 +87,8 @@ public class Display extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!text.getText().isEmpty()) {
-                    Task item = new Task(text.getText());
-                    m1.addElement(item);
+                    Task task = new Task(text.getText());
+                    m1.addElement(task);
                     text.setText(null);
                 }
             }
