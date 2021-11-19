@@ -5,6 +5,7 @@ import model.ToDoList;
 
 import javax.swing.*;
 
+// A todolist model class representing a todolist model for the display to use
 public class TodoListModel extends AbstractListModel {
 
     private ToDoList list;

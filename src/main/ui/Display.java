@@ -9,11 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
+// Display class sets the display/graphics of the gui, including button functionality
 public class Display extends JFrame {
 
     private JTextField text = new JTextField(25);
@@ -47,9 +46,9 @@ public class Display extends JFrame {
 
     // EFFECTS: Sets the frame display of the program
     private void setFrame() {
-        setSize(700, 400);
+        setSize(350, 350);
         setTitle("Your todo list app");
-        setResizable(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -60,15 +59,21 @@ public class Display extends JFrame {
     //EFFECTS: Sets user story buttons and text field as the menu
     public void addMenu() {
         JPanel menuPanel = new JPanel();
+        menuPanel.setBackground(new Color(92,92,92));
         add(menuPanel);
 
+        text.setHorizontalAlignment(JTextField.CENTER);
         menuPanel.add(text);
+
         menuPanel.add(b1);
         addTask(b1);
+
         menuPanel.add(b2);
         removeTask(b2);
+
         menuPanel.add(b3);
         loadTodo(b3);
+
         menuPanel.add(b4);
         saveTodo(b4);
 
@@ -140,12 +145,17 @@ public class Display extends JFrame {
 
     }
 
-    // EFFECTS: popup window that says application has been saved.
+    // EFFECTS: popup window that says application has been saved + visual component with the dog image
     public void savePopUp() {
+        ImageIcon doggo = new ImageIcon("dog.png");
+        Image dog = doggo.getImage();
+        Image newDog = dog.getScaledInstance(80,50, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon thisDog = new ImageIcon(newDog);
+
         JOptionPane.showMessageDialog(null,
                 "Your todolist has been saved",
                 "Saved",
-                JOptionPane.WARNING_MESSAGE);
+                JOptionPane.WARNING_MESSAGE, thisDog);
     }
 
 }
