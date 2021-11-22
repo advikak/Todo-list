@@ -28,6 +28,7 @@ public class Display extends JFrame {
     private JButton b2 = new JButton("Remove");
     private JButton b3 = new JButton("Load");
     private JButton b4 = new JButton("Save");
+    private JButton b5 = new JButton("Print Log");
     private JScrollPane scrollPane = new JScrollPane(list);
 
     // EFFECTS: sets a display for the application
@@ -77,7 +78,13 @@ public class Display extends JFrame {
         menuPanel.add(b4);
         saveTodo(b4);
 
+        menuPanel.add(b5);
+        printLog(b5);
+
         revalidate();
+    }
+
+    private void printLog(JButton b5) {
     }
 
     // MODIFIES: this
