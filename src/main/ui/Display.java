@@ -1,5 +1,7 @@
 package ui;
 
+import exception.LogException;
+import model.EventLog;
 import model.Task;
 import model.ToDoList;
 import persistence.JsonReader;
@@ -9,6 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -28,7 +32,6 @@ public class Display extends JFrame {
     private JButton b2 = new JButton("Remove");
     private JButton b3 = new JButton("Load");
     private JButton b4 = new JButton("Save");
-    private JButton b5 = new JButton("Print Log");
     private JScrollPane scrollPane = new JScrollPane(list);
 
     // EFFECTS: sets a display for the application
@@ -54,6 +57,14 @@ public class Display extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         getContentPane().setBackground(new Color(64, 64, 64));
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                todo.printLog();
+            }
+        });
+
     }
 
     // MODIFIES: this
@@ -78,14 +89,10 @@ public class Display extends JFrame {
         menuPanel.add(b4);
         saveTodo(b4);
 
-        menuPanel.add(b5);
-        printLog(b5);
 
         revalidate();
     }
 
-    private void printLog(JButton b5) {
-    }
 
     // MODIFIES: this
     // EFFECTS: Adding a task button, this will add task that user had inputted into list
@@ -121,6 +128,7 @@ public class Display extends JFrame {
                 try {
                     todo = jsonReader.read();
                     viewTodo(todo);
+                    todo.loadedList();
                 } catch (IOException i) {
                     System.out.println("Unable to read from file: " + JSON_STORE);
                 }
@@ -164,6 +172,7 @@ public class Display extends JFrame {
                 "Saved",
                 JOptionPane.WARNING_MESSAGE, thisDog);
     }
+
 
 }
 

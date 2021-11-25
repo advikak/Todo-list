@@ -29,15 +29,18 @@ public class ToDoList implements Writable {
     //EFFECTS: adds a task to the TodoList
     public void addTask(Task addedTask) {
         todo.add(addedTask);
+        EventLog.getInstance().logEvent(new Event("Added a task: " + addedTask));
     }
 
     //MODIFIES: this
     //EFFECTS: removes a task from the todolist
     public void removeTask(Task removedTask) {
         todo.remove(removedTask);
+
     }
 
     public void removeIndexTask(int index) {
+        EventLog.getInstance().logEvent(new Event("Removed a task: " + todo.get(index)));
         todo.remove(index);
     }
 
@@ -78,6 +81,16 @@ public class ToDoList implements Writable {
         }
 
         return jsonArray;
+    }
+
+    public void printLog() {
+        for (Event e: EventLog.getInstance()) {
+            System.out.println(e);
+        }
+    }
+
+    public void loadedList() {
+        EventLog.getInstance().logEvent(new Event("Loaded the list"));
     }
 }
 
