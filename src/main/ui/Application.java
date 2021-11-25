@@ -20,7 +20,6 @@ public class Application {
     private ToDoList completeTasks;
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
-    private Display display;
 
     //EFFECTS: runs the application
     public Application() throws FileNotFoundException {

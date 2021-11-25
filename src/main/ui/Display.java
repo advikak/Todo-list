@@ -1,7 +1,5 @@
 package ui;
 
-import exception.LogException;
-import model.EventLog;
 import model.Task;
 import model.ToDoList;
 import persistence.JsonReader;

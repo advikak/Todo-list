@@ -32,6 +32,15 @@ your tasks organized.
 - Have the option to save my todo list when quiting the app
 - Have the option to load my todo list when starting the app
 
+##Phase 4: Task 2
+**Example of event log in console:**
 
-
+Thu Nov 25 15:39:11 PST 2021\
+Added a task: task 1\
+Thu Nov 25 15:39:13 PST 2021\
+Removed a task: task 1\
+Thu Nov 25 15:39:20 PST 2021\
+Added a task: task 2\
+Thu Nov 25 15:39:20 PST 2021\
+Loaded the list
 
