@@ -44,3 +44,14 @@ Added a task: task 2\
 Thu Nov 25 15:39:20 PST 2021\
 Loaded the list
 
+## Phase 4: Task 3
+**Reflection** \
+There's less cohesion in my display class and my applicaton class, as it has 
+many functionalities such as setting up the display, add/removing tasks and 
+save/load functionality. 
+
+- Create private nested classes for the different functions
+- Create different classes for them
+- Remove assocation between Display and todolist and have the todolistmodel have a 
+getTodo method.
+- Create an abstract class with methods useful to both the application/display class
