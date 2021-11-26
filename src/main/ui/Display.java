@@ -23,8 +23,6 @@ public class Display extends JFrame {
     private TodoListModel m1;
 
     private static final String JSON_STORE = "./data/todolist.json";
-    private JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
-    private JsonReader jsonReader = new JsonReader(JSON_STORE);
 
     private JButton b1 = new JButton("Add");
     private JButton b2 = new JButton("Remove");
@@ -124,6 +122,7 @@ public class Display extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    JsonReader jsonReader = new JsonReader(JSON_STORE);
                     todo = jsonReader.read();
                     viewTodo(todo);
                     todo.loadedList();
@@ -140,6 +139,7 @@ public class Display extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    JsonWriter jsonWriter = new JsonWriter(JSON_STORE);
                     jsonWriter.open();
                     jsonWriter.write(todo);
                     jsonWriter.close();
